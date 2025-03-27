@@ -8,14 +8,14 @@ int main() {
     // Nível Novato - Movimentação das Peças
     // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
     // Torre: 5 casas, Bispo: 5 casas, Rainha: 8 casas
-    int torre, bispo, rainha, opcao, direcao, qtde;
+    int torre, bispo, rainha, opcao, direcao, qtde, cavalo;
 
     // Implementação de Movimentação do Bispo
     // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
     do
     {
         printf("\nSimulação de movimentação de peças de xadrez\n");
-        printf("Escolha uma peça para se mover:\n1. Torre\n2. Bispo\n3. Rainha\n4. Sair\n");
+        printf("Escolha uma peça para se mover:\n1. Torre\n2. Bispo\n3. Rainha\n4. Cavalo\n5. Sair\n");
         printf("-> ");
         scanf("%d", &opcao);
 
@@ -153,12 +153,52 @@ int main() {
             }
         break;
         case 4:
+            cavalo = 1;
+            printf("\nPeça 'Cavalo' selecionada\n");
+            printf("Selecione a direção que a peça deve percorrer (em L)\n1. Cima, Esquerda\n2. Cima, Direita\n3. Baixo, Esquerda\n4. Baixo, Direita\n");
+            printf("-> ");
+            scanf("%d", &direcao);
+            printf("\n");
+            if(direcao == 1){
+                while (cavalo--){
+                    for(int i = 1; i <= 2; i++){
+                        printf("Cima\n");
+                    } 
+                    printf("Esquerda\n");
+                }
+            } else if(direcao == 2){
+                while (cavalo--){
+                    for(int i = 1; i <= 2; i++){
+                        printf("Cima\n");
+                    } 
+                    printf("Direita\n");
+                }
+            } else if(direcao == 3){
+                while (cavalo--){
+                    for(int i = 1; i <= 2; i++){
+                        printf("Baixo\n");
+                    }
+                    printf("Esquerda\n");
+                }
+            } else if(direcao == 4){
+                while (cavalo--){
+                    for(int i = 1; i <= 2; i++){
+                        printf("Baixo\n");
+                    } 
+                    printf("Direita\n");
+                }
+            } else {
+                printf("\nA direção da peça está inválida! Tente novamente.\n");
+            }
+        break;
+        case 5:
             printf("\nSaindo.....\n");
+        break;
         default:
             printf("\nOpção inválida! Vamos tentar de novo.\n");
         break;
         }
-    } while (opcao != 4);
+    } while (opcao != 5);
     
     // Implementação de Movimentação da Torre
     // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
